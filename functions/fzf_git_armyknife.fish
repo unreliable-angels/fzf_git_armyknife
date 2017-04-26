@@ -1,15 +1,5 @@
-function __fzf_git_armyknife_things_you_want_to_do
-    set -l k
-
-    # =========================================================================
-    set k $k 'I want to delete all branches which have been merged'
-    # =========================================================================
-    set k $k 'I want to view a file in a different branch without changing branches'
-    # =========================================================================
-    set k $k 'I want to get just one file from another branch'
-    # =========================================================================
-
-    for key in $k
+function __fzf_git_armyknife_things_you_want_to_do -d '<keys>'
+    for key in $argv
         echo $key
     end
 end
@@ -35,7 +25,7 @@ function fzf_git_armyknife -d 'fzf source of the swiss army knife for Git operat
     set v $v 'git checkout <branch> -- <file>'
     # =========================================================================
 
-    __fzf_git_armyknife_things_you_want_to_do | fzf | read thing_you_want_to_do
+    __fzf_git_armyknife_things_you_want_to_do $k | fzf | read thing_you_want_to_do
 
     if test -n "$thing_you_want_to_do"
         if set -l index (contains -i -- "$thing_you_want_to_do" $k)
