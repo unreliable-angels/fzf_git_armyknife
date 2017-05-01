@@ -8,6 +8,8 @@ function fzf_git_armyknife -d 'fzf source of the swiss army knife for Git operat
     git rev-parse --is-inside-work-tree >/dev/null ^/dev/null
 
     if not test $status -eq 0
+        command echo 'fzf_git_armyknife: Not a git repository'
+        commandline -f execute
         return
     end
 
