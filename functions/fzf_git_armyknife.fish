@@ -29,6 +29,9 @@ function fzf_git_armyknife -d 'fzf source of the swiss army knife for Git operat
     set k $k 'I want to find the commit which cause a particular regression'
     set v $v 'git bisect start <bad-commit> <good-commit>'
     # =========================================================================
+    set k $k 'I want to get submodule in already cloned repo without "recursive"'
+    set v $v 'git submodule update --init --recursive'
+    # =========================================================================
 
     __fzf_git_armyknife_things_you_want_to_do $k | fzf | read thing_you_want_to_do
 
