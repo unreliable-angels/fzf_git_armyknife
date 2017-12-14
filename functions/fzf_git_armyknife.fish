@@ -38,6 +38,9 @@ function fzf_git_armyknife -d 'fzf source of the swiss army knife for Git operat
     set k $k 'I want to rebase a branch onto another one'
     set v $v 'git rebase --onto <new-base> <current-base> <branch>'
     # =========================================================================
+    set k $k 'I want to checkout origin master branch to local with new name'
+    set v $v 'git checkout -b <local-branch-name> origin/master'
+    # =========================================================================
 
     __fzf_git_armyknife_things_you_want_to_do $k | fzf | read thing_you_want_to_do
 
